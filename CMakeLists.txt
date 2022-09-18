@@ -11,10 +11,10 @@ set(CMAKE_CXX_STANDARD 17)
 
 include_directories(src)
 
-add_executable(spectre "")
+add_executable(spectrum "")
 add_subdirectory(src)
 
-set_target_properties(spectre
+set_target_properties(spectrum
 	PROPERTIES
 	CXX_STANDARD 17
 	)
