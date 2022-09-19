@@ -28,7 +28,7 @@ std::complex<double>* SignalProcess::fft(std::complex<double>* signal, std::comp
 }
 
  
-std::vector<std::complex<double>> SignalProcess::FFT(std::vector<std::complex<double>> signal){
+std::vector<double> SignalProcess::FFT(std::vector<std::complex<double>> signal){
 	int n = signal.size();
 	std::complex<double>* sig = new std::complex<double>[n];
 	std::complex<double>* arr = new std::complex<double>[n];
@@ -38,14 +38,22 @@ std::vector<std::complex<double>> SignalProcess::FFT(std::vector<std::complex<do
 		i++;
 	}
 	auto res = SignalProcess::fft(sig, arr, n, 1, std::polar(1., 2 * pi / signal.size()));
-	std::vector<std::complex<double>> result;
+	std::vector<double> result;
 	
 	for (int i = 0; i < n; i++){
-		result.push_back(res[i]);
+		result.push_back(std::abs(res[i]));
 	}
 
 	delete[] sig;
 	delete[] arr;
 
 	return result;
+}
+
+
+double SignalProcess::hann_function(int n, int N){
+	if (n >= 0 && n <= N)
+		return std::pow(sin(pi * (double)n / (double) N), 2);
+	else 
+		return 0;
 }
