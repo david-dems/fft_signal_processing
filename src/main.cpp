@@ -8,23 +8,30 @@
 
 int main(){
 
+	std::cout << "Please, enter path to inpout file *.txt:" << std::endl;
+	
+	std::string path;
+	std::cin >> path;
+
 	std::ifstream fin;
-	fin.open(R"(C:\Users\hr3q2\source\repos\fft_signal_processing\resources\signal.txt)");
+	fin.open(path);
 
 	if (!fin.is_open())
 		return 1;
 	
 	std::string str;
 	std::vector<double> signal;
+	int samples_count = 0;
 	while(std::getline(fin, str)){
 		signal.push_back(std::stod(str));
+		samples_count++;
 	}
 
 	fin.close();
 
 	double max = 0;
 	int pos;
-	for (int j = 0; j < 30000; j += 2048){
+	for (int j = 0; j <= samples_count; j += 2048){
 		std::vector<std::complex<double>> window = {};
 		for (int i = 0; i < 4096; i++){
 			window.push_back(signal[i] * SignalProcess::hann_function(i - j, 4096));
