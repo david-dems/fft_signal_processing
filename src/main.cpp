@@ -2,13 +2,14 @@
 #include <fstream>
 #include <complex>
 #include <vector>
+#include <algorithm>
 #include "fft.h"
 
 
 int main(){
 
 	std::ifstream fin;
-	fin.open("../resources/signal.txt");
+	fin.open(R"(C:\Users\hr3q2\source\repos\fft_signal_processing\resources\signal.txt)");
 
 	if (!fin.is_open())
 		return 1;
@@ -38,7 +39,7 @@ int main(){
 	}
 
 
-	std::cout << "Частота с максимальной амплитудой: " << (double) pos / 4.096  << " Гц" << std::endl;
+	std::cout << "Frequency with max amplitude: " << (double) pos / 4.096  << " Hz" << std::endl;
 
 	/*std::ofstream fout;
 	fout.open("../resources/spectrum.txt");
@@ -48,6 +49,7 @@ int main(){
 		i++;
 	}*/
 
+	system("pause");
 
 
 	return 0;

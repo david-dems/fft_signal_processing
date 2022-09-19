@@ -33,7 +33,8 @@
 
 
 bin/
-
+out/
+.VS
 
 CMakeFiles/
 CMakeCache.txt
