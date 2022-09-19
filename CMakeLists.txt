@@ -7,7 +7,7 @@ set(DESCRIPTION "Homemade FFT")
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ./bin)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 
 include_directories(src)
 
@@ -16,7 +16,7 @@ add_subdirectory(src)
 
 set_target_properties(spectrum
 	PROPERTIES
-	CXX_STANDARD 17
+	CXX_STANDARD 20
 	)
 
 
