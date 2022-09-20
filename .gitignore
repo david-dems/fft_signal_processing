@@ -34,7 +34,9 @@
 
 bin/
 out/
+build/
 .VS
+.vscode
 
 CMakeFiles/
 CMakeCache.txt
